@@ -106,6 +106,14 @@ describe Robot do
           end
         end
       end
+
+      it "ignores any inputs except left and right" do
+        @robot.facing = :north
+        @robot.turn :upsidedown
+
+        @robot.facing.must_equal :north
+      end
+
     end
   end
 

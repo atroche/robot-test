@@ -42,6 +42,7 @@ class Robot
   end
 
   def turn relative_direction
+    return unless [:left, :right].include? relative_direction
     @facing = DIRECTIONS[@facing][relative_direction]
   end
 end
