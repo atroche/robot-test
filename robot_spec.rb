@@ -56,12 +56,23 @@ describe Robot do
   end
 
   describe "#move" do
-    it "moves the robot one position north when it's facing north" do
+    Robot::DIRECTIONS.each do |direction, movement|
+      it "moves the robot #{direction} when facing #{direction}" do
+        @robot.place(1, 1, direction)
+        old_x = @robot.x
+        old_y = @robot.y
+
+        @robot.move
+
+        @robot.x.must_equal(old_x + movement[:x])
+        @robot.y.must_equal(old_y + movement[:y])
+      end
+    end
+
+    it "doesn't change the direction of the robot" do
       @robot.place(1, 1, :north)
       @robot.move
 
-      @robot.x.must_equal 1
-      @robot.y.must_equal 2
       @robot.facing.must_equal :north
     end
   end
