@@ -1,0 +1,1 @@
+An example of a simple test-driven Ruby app.
