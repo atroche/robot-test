@@ -24,7 +24,7 @@ class Robot
   end
 
   def place(x, y, facing)
-    if (valid_action?(x, y, facing))
+    if valid_action?(x, y, facing)
       @x = x
       @y = y
       @facing = facing
@@ -35,7 +35,7 @@ class Robot
     new_x = @x + DIRECTIONS[@facing][:x]
     new_y = @y + DIRECTIONS[@facing][:y]
 
-    if (valid_action?(new_x, new_y, @facing))
+    if valid_action?(new_x, new_y, @facing)
       @x = new_x
       @y = new_y
     end
