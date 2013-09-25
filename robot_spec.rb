@@ -43,10 +43,10 @@ describe Robot do
       it "doesn't change the x, y and facing of the robot" do
         @robot.place(1, 2, :north)
 
-        @robot.place(1, 6, :south)
+        @robot.place(1, 5, :south)
         @robot.place(-1, 3, :south)
-        @robot.place(6, 3, :south)
-        @robot.place(6, -1, :south)
+        @robot.place(5, 3, :south)
+        @robot.place(5, -1, :south)
 
         @robot.x.must_equal 1
         @robot.y.must_equal 2
@@ -77,11 +77,11 @@ describe Robot do
     end
 
     it "doesn't move the robot off the table" do
-      @robot.place(5, 5, :north)
+      @robot.place(4, 4, :north)
       @robot.move
 
-      @robot.x.must_equal 5
-      @robot.y.must_equal 5
+      @robot.x.must_equal 4
+      @robot.y.must_equal 4
     end
   end
 end

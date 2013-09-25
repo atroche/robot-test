@@ -9,8 +9,8 @@ class Robot
   }
 
   def place(x, y, facing)
-    if (x >= 0 && x <= 5 &&
-        y >= 0 && y <= 5 &&
+    if (x >= 0 && x <= 4 &&
+        y >= 0 && y <= 4 &&
         DIRECTIONS.keys.include?(facing))
       @x = x
       @y = y
@@ -22,8 +22,8 @@ class Robot
     new_x = @x + DIRECTIONS[@facing][:x]
     new_y = @y + DIRECTIONS[@facing][:y]
 
-    if (new_x >= 0 && new_x <= 5 &&
-        new_y >= 0 && new_y <= 5 &&
+    if (new_x >= 0 && new_x <= 4 &&
+        new_y >= 0 && new_y <= 4 &&
         DIRECTIONS.keys.include?(facing))
       @x = new_x
       @y = new_y
