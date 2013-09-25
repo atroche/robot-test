@@ -1,4 +1,4 @@
-load 'robot.rb'
+load 'lib/robot.rb'
 
 robot = Robot.new
 

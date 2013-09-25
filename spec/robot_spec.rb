@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require "minitest/reporters"
-load 'robot.rb'
+load 'lib/robot.rb'
 
 MiniTest::Reporters.use! MiniTest::Reporters::SpecReporter.new
 
