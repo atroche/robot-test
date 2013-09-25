@@ -10,13 +10,13 @@ end
 
 
 class Robot
-  attr_reader :x, :y, :facing
+  attr_accessor :x, :y, :facing
 
   DIRECTIONS = {
-    north: {x: 0, y: 1},
-    east: {x: 1, y: 0},
-    south: {x: 0, y: -1},
-    west: {x: -1, y: 0}
+    north: {x: 0, y: 1, left: :west, right: :east},
+    east: {x: 1, y: 0, left: :north, right: :south},
+    south: {x: 0, y: -1, left: :east, right: :west},
+    west: {x: -1, y: 0, left: :south, right: :north}
   }
 
   def valid_action?(x, y, facing)
@@ -39,5 +39,9 @@ class Robot
       @x = new_x
       @y = new_y
     end
+  end
+
+  def turn relative_direction
+    @facing = DIRECTIONS[@facing][relative_direction]
   end
 end

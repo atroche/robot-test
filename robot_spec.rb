@@ -84,4 +84,29 @@ describe Robot do
       @robot.y.must_equal 4
     end
   end
+
+  describe "#turn" do
+    describe "when the robot is placed in the middle of the table" do
+      before do
+        @robot.x = @robot.y = Table::SIZE / 2
+      end
+
+      Robot::DIRECTIONS.each do |direction, movement_info|
+
+        describe "facing #{direction.downcase}" do
+          before do
+            @robot.facing = direction
+          end
+
+          [:left, :right].each do |relative_direction|
+            it "faces #{movement_info[relative_direction].downcase} after turning #{relative_direction}" do
+              @robot.turn(relative_direction)
+              @robot.facing.must_equal movement_info[relative_direction]
+            end
+          end
+        end
+      end
+    end
+  end
+
 end
