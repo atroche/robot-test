@@ -75,5 +75,13 @@ describe Robot do
 
       @robot.facing.must_equal :north
     end
+
+    it "doesn't move the robot off the table" do
+      @robot.place(5, 5, :north)
+      @robot.move
+
+      @robot.x.must_equal 5
+      @robot.y.must_equal 5
+    end
   end
 end

@@ -19,7 +19,14 @@ class Robot
   end
 
   def move
-    @x += DIRECTIONS[@facing][:x]
-    @y += DIRECTIONS[@facing][:y]
+    new_x = @x + DIRECTIONS[@facing][:x]
+    new_y = @y + DIRECTIONS[@facing][:y]
+
+    if (new_x >= 0 && new_x <= 5 &&
+        new_y >= 0 && new_y <= 5 &&
+        DIRECTIONS.keys.include?(facing))
+      @x = new_x
+      @y = new_y
+    end
   end
 end
