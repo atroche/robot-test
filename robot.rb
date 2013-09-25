@@ -12,4 +12,10 @@ class Robot
       @facing = facing
     end
   end
+
+  def move
+    if @facing == :north
+      @y += 1
+    end
+  end
 end

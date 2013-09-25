@@ -54,4 +54,15 @@ describe Robot do
       end
     end
   end
+
+  describe "#move" do
+    it "moves the robot one position north when it's facing north" do
+      @robot.place(1, 1, :north)
+      @robot.move
+
+      @robot.x.must_equal 1
+      @robot.y.must_equal 2
+      @robot.facing.must_equal :north
+    end
+  end
 end
