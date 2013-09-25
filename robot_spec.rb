@@ -11,12 +11,31 @@ describe Robot do
 
   describe "#place" do
     describe "when the specified position is on the table" do
-      it "sets the x, y and facing of the robot" do
-        @robot.place(1, 2, :north)
+      before do
+        @new_x = 1
+        @new_y = 2
+      end
 
-        @robot.x.must_equal 1
-        @robot.y.must_equal 2
+      it "sets the x, y and facing of the robot" do
+        @robot.place(@new_x, @new_y, :north)
+
+        @robot.x.must_equal @new_x
+        @robot.y.must_equal @new_y
         @robot.facing.must_equal :north
+      end
+
+      describe "but the supplied direction isn't one of the cardinal four" do
+        before do
+          @facing = :northeast
+        end
+
+        it "doesn't change the robot" do
+          @robot.place(@new_x, @new_y, @facing)
+
+          @robot.x.wont_equal @new_x
+          @robot.y.wont_equal @new_y
+          @robot.facing.wont_equal @facing
+        end
       end
     end
 
